@@ -36,7 +36,12 @@ module.exports = (sequelize, DataTypes) => {
     notNull: {msg: `role is required`},
     notEmpty: {msg: `role is required`}
   }},
-    ProfileId: DataTypes.INTEGER
+    ProfileId: {
+      type: DataTypes.INTEGER,
+    references: {
+      model: "Profile",
+      key: 'id'
+    }}
   }, {
     sequelize,
     modelName: 'User',
