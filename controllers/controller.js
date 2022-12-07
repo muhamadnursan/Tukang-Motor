@@ -1,1 +1,5 @@
-console.log('haha');
+class Controller {
+
+}
+
+module.exports = Controller
