@@ -1,0 +1,16 @@
+[
+    {
+        "UserId":1,
+        "name":"Yamaha Mio",
+        "price":10000000,
+        "description":"Harga terjamin, kualitas berani diuji. Dijamin gak nyesal.",
+        "image":"Yamaha Mio.jpeg"
+    },
+    {
+        "UserId":2,
+        "name":"Kawasaki Ninja",
+        "price":20000000,
+        "description":"Irit bahan bakar, ramah lingkungan. Gak berisik.",
+        "image":"Ninja.jpeg"
+    }
+]
