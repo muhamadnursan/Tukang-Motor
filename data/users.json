@@ -1,0 +1,14 @@
+[
+    {
+        "ProfileId":1,
+        "email":"nurzhanbaik@ymail.com",
+        "password":"123wkwk",
+        "role":"admin"
+    },
+    {
+        "ProfileId":2,
+        "email":"vhezauhuy@gmail.com",
+        "password":"empatlimaenam",
+        "role":"user"
+    }
+]
