@@ -26,8 +26,9 @@
                     <td><%=currency(data.price)%></td>
                     <td><%=data.description%></td>
                     <td><img src="<%=data.image%>" alt=""></td>
-                    <td><a href="">Update</a></td>
-                    <td><a href="">Delete</a></td>
+                    <td><a href="/users/<%=data.id%>/update">Update</a></td>
+                    <td><a href="/users/<%=data.id%>/delete">Delete</a></td>
+
                 </tr>
             </tbody>
             <hr>

@@ -1,6 +1,9 @@
-const{Profile, User, Product, Sequelize} = require("../models")
+
+const{Profile, User, Product} = require("../models/")
+let Sequelize = require('sequelize');
 const currency  = require("../helpers/currency")
-const {resolve} = require("path")
+// const {resolve} = require("path")
+
 class Controller {
     static readAllProducts(req, res){
         const{search} = req.query
@@ -40,6 +43,8 @@ class Controller {
         })
     }
     static renderAddProduct(req,res){
+        const {id} = req.params.id
+        let error = req.query.errors?JSON.parse(req.query.errors):''
         Product.findAll()
         .then((data)=>{
             console.log(data, "<<< data");
@@ -50,13 +55,6 @@ class Controller {
         })
     }
     static handleAddProduct(req,res){
-        // let product = {
-        //    name: req.body.name,
-        //    category: req.body.category,
-        //    price: req.body.price,
-        //    image: req.body.image,
-        //    description: req.body.description 
-        // }
         const{name, brand, price, image, description} = req.body
         console.log(req.body, "<<<<<<");
         Product.create({name, brand, price, image, description, UserId : 1})
@@ -67,6 +65,39 @@ class Controller {
             res.send(err)
         })
     }
+
+    static productDelete(req, res){
+        let id = req.params.id
+        Product.destroy({where: {id:id}})
+        .then(()=>{
+            res.redirect("/users")
+        })
+        .catch((err)=>{
+            res.send(err)
+        })
+    }
+
 }
 
 module.exports = Controller
+
+
+
+
+
+
+
+// const {Profile, User, Product} = require('../models/');
+// class Controller {
+//     static renderAdd(req, res) {
+//         const { email, password } = req.body
+//         User.create({email, password})
+//         .then((res) => {
+//             res.render("add", {res})
+//         }).catch((err) => {
+            
+//         });
+//     }
+// }
+
+// module.exports = Controller

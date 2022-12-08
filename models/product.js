@@ -10,50 +10,60 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
-      Product.belongsTo(models.User, {foreignKey:"UserId"})
-    }
-    static productDetail(){
-      
+      Product.belongsTo(models.User)
     }
   }
   Product.init({
     name: {
       type: DataTypes.STRING,
-    allowNull: false,
-  validate: {
-    notNull: {msg: `name is required`},
-    notEmpty: {msg: `name is required`}
-  }},
+      allowNull: false,
+      validate: {
+        notNull: { msg: `name is required` },
+        notEmpty: { msg: `name is required` }
+      }
+    },
     price: {
       type: DataTypes.INTEGER,
-    allowNull: false,
-  validate: {
-    notNull: {msg: `price is required`},
-    notEmpty: {msg: `price is required`}
-  }},
+      allowNull: false,
+      validate: {
+        notNull: { msg: `price is required` },
+        notEmpty: { msg: `price is required` }
+      }
+    },
     description: {
       type: DataTypes.TEXT,
-    allowNull: false,
-  validate: {
-    notNull: {msg: `description is required`},
-    notEmpty: {msg: `description is required`}
-  }},
+      allowNull: false,
+      validate: {
+        notNull: { msg: `description is required` },
+        notEmpty: { msg: `description is required` }
+      }
+    },
     image: {
       type: DataTypes.TEXT,
-    allowNull: false,
-  validate: {
-    notNull: {msg: `image is required`},
-    notEmpty: {msg: `image is required`}
-  }},
-  brand: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notNull: {msg: `brand is required`},
-      notEmpty: {msg: `brand is required`}
-    }
-  }
+
+      allowNull: false,
+      validate: {
+        notNull: { msg: `image is required` },
+        notEmpty: { msg: `image is required` }
+      }
+    },
+    brand: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: { msg: `brand is required` },
+        notEmpty: { msg: `brand is required` }
+      }
+    },
+    UserId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: { msg: `UserId is required` },
+        notEmpty: { msg: `UserId is required` }
+      }
+    },
+
   }, {
     sequelize,
     modelName: 'Product',

@@ -6,4 +6,4 @@ const rupiah = (number) => {
   };
   
   module.exports = rupiah;
-  
+
