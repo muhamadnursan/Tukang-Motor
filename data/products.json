@@ -1,16 +1,19 @@
 [
     {
         "UserId":1,
-        "name":"Yamaha Mio",
+        "brand":"Yamaha",
+        "name":"Mio",
         "price":10000000,
         "description":"Harga terjamin, kualitas berani diuji. Dijamin gak nyesal.",
-        "image":"Yamaha Mio.jpeg"
+        "image":"Mio.jpeg"
+
     },
     {
         "UserId":2,
-        "name":"Kawasaki Ninja",
+        "brand":"Honda",
+        "name":"Supra-X",
         "price":20000000,
-        "description":"Irit bahan bakar, ramah lingkungan. Gak berisik.",
-        "image":"Ninja.jpeg"
+        "description":"Irit bahan bakar, ramah lingkungan, gesit.",
+        "image":"supra.jpeg"
     }
 ]

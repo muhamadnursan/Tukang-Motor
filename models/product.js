@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Product.belongsTo(models.User, {foreignKey:"UserId"})
+    }
+    static productDetail(){
+      
     }
   }
   Product.init({
@@ -42,6 +46,14 @@ module.exports = (sequelize, DataTypes) => {
     notNull: {msg: `image is required`},
     notEmpty: {msg: `image is required`}
   }},
+  brand: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      notNull: {msg: `brand is required`},
+      notEmpty: {msg: `brand is required`}
+    }
+  }
   }, {
     sequelize,
     modelName: 'Product',

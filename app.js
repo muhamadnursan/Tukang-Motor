@@ -1,5 +1,7 @@
 const express = require("express")
 const app = express()
+const router = require("./routers/index")
+
 const port = 3000
 const router = require('./Routes/')
 const session = require('express-session')
@@ -17,7 +19,6 @@ app.use(session({
 
     }
 }))
-
 
 app.use("/", router)
 
