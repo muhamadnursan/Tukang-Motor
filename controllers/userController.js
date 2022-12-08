@@ -1,5 +1,6 @@
 const { User } = require('../models/index')
 const bcrypt = require('bcryptjs')
+const sendEmail = require('../helpers/nodemailer')
 
 class UserController {
     static loginForm(req, res) {
@@ -10,7 +11,6 @@ class UserController {
 
     static registerForm(req, res) {
         res.render('register-form')
-
     }
 
     static postRegister(req, res) {
@@ -18,6 +18,7 @@ class UserController {
         const { email, password, role } = req.body
         User.create({ email, password, role })
             .then(() => {
+                sendEmail(email)
                 res.redirect('/login')
             }).catch((err) => {
                 console.log(err)
