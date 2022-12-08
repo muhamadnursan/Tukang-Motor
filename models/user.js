@@ -19,31 +19,35 @@ module.exports = (sequelize, DataTypes) => {
   User.init({
     email: {
       type: DataTypes.STRING,
-    allowNull: false,
-  validate: {
-    notNull: {msg: `email is required`},
-    notEmpty: {msg: `email is required`}
-  }},
+      allowNull: false,
+      validate: {
+        notNull: { msg: `email is required` },
+        notEmpty: { msg: `email is required` }
+      }
+    },
     password: {
       type: DataTypes.STRING,
-    allowNull: false,
-  validate: {
-    notNull: {msg: `password is required`},
-    notEmpty: {msg: `password is required`}
-  }},
+      allowNull: false,
+      validate: {
+        notNull: { msg: `password is required` },
+        notEmpty: { msg: `password is required` }
+      }
+    },
     role: {
       type: DataTypes.STRING,
-    allowNull: false,
-  validate: {
-    notNull: {msg: `role is required`},
-    notEmpty: {msg: `role is required`}
-  }},
+      allowNull: false,
+      validate: {
+        notNull: { msg: `role is required` },
+        notEmpty: { msg: `role is required` }
+      }
+    },
     ProfileId: {
       type: DataTypes.INTEGER,
-    references: {
-      model: "Profile",
-      key: 'id'
-    }}
+      references: {
+        model: "Profile",
+        key: 'id'
+      }
+    }
   }, {
     sequelize,
     modelName: 'User',
