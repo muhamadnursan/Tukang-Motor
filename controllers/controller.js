@@ -1,7 +1,9 @@
+
 const{Profile, User, Product} = require("../models/")
 let Sequelize = require('sequelize');
 const currency  = require("../helpers/currency")
 // const {resolve} = require("path")
+
 class Controller {
     static readAllProducts(req, res){
         const{search} = req.query
@@ -17,7 +19,6 @@ class Controller {
         }
         Product.findAll(option)
         .then((result) => {
-            console.log(result)
             res.render("allProducts", {result})
         }).catch((err) => {
             res.send(err)
@@ -64,6 +65,7 @@ class Controller {
             res.send(err)
         })
     }
+
     static productDelete(req, res){
         let id = req.params.id
         Product.destroy({where: {id:id}})
@@ -74,7 +76,7 @@ class Controller {
             res.send(err)
         })
     }
-    
+
 }
 
 module.exports = Controller

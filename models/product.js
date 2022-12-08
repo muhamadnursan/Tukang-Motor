@@ -40,6 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     image: {
       type: DataTypes.TEXT,
+
       allowNull: false,
       validate: {
         notNull: { msg: `image is required` },
@@ -62,6 +63,7 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: { msg: `UserId is required` }
       }
     },
+
   }, {
     sequelize,
     modelName: 'Product',
