@@ -18,7 +18,6 @@ app.use(session({
     }
 }))
 
-
 app.use("/", router)
 
 app.listen(port, ()=>{
