@@ -3,7 +3,7 @@ const app = express()
 const router = require("./routers/index")
 
 const port = 3000
-const router = require('./Routes/')
+// const router = require('./Routes/')
 const session = require('express-session')
 
 app.set('view engine', 'ejs')
@@ -20,8 +20,7 @@ app.use(session({
     }
 }))
 
-app.use("/", router)
-
+app.use(router)
 app.listen(port, ()=>{
     console.log(`on port ${port}`);
 })

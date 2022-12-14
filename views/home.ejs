@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,43 +9,54 @@
     <style></style>
     <title>Document</title>
 </head>
+
 <body>
-        <nav class="navbar navbar-expand-lg bg-light flex">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Home</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/users">Products</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-    <div class="container">
+    <%- include('Navbar.ejs') %> 
+    
+    <div class="container ">
+        <table >
+            <tr>
+                <th>Gambar Product</th>
+                <th>Nama Product</th>
+                <th>Nama Pemilik</th>
+                <th>Tanggal Upload</th>
+                <th>Action</th>
+            </tr>
+            <% data.forEach(el=> { %>
+                <%el.Products.forEach(item=>{%>
+                    <tr>
+                        <td><img src="" alt="gambar.jpg" width="50px" height="50px"></td>
+                        <td>
+                            <%=item.name%>
+                        </td>
+                        <%})%>
+                    
+                    <td>
+                        <%=el.Profile.fullName%>
+                    </td>
+                    
+                    <td>
+                        <%=el.Profile.createdAt.toISOString().slice(0,10)%>
+                    </td>
+                    
+                    <td><button href="">hapus</button></td>
+                </tr>
+                <%}) %>
+            
+        </table>
+
+
+
+
+
+
 
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js
     "></script>
 </body>
+
+</html>
+
 </html>

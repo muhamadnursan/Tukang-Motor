@@ -16,48 +16,41 @@
   </head>
   <body>
     <%- include('Navbar.ejs') %> 
-    <form action="/users/add" method="post">
+    <form action="/users/<%=data.id%>/update" method="post">
     <div class="container">
-
-      <div class="err">
-        <%if(error){ %>
-          <%error.split(",").forEach(el=>{%>
-            <p style="color: brown;">*<%=el%> ...!</p>
-          <%})%>
-        <%}%>
-      </div>
 
       <h1>U Can Motorcycle</h1>
       <h3>Post your Bike here</h3>
 
       <div class="mb-3">
-        <label for="exampleFormControlInput1">Name:</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="insert bike name" name="name" autocomplete="off">
+        <label for="exampleFormControlInput1">Name: </label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="insert bike name" 
+        value="<%= data.name %>" name="name" autocomplete="off">
     </div>
 
-    <label for="Default select example">Brand:</label>
-    <select class="form-select" id="Default select example" name="brand">
-        <option selected disabled> ---Select Brand--- </option>
-        <option value="Yamaha">Yamaha</option>
-        <option value="Honda">Honda</option>
-        <option value="Mercy">Mercy</option>
-       
-    </select>
+      <label for="Default select example">Brand:</label>
+      <select class="form-select" id="Default select example" value="<%= data.brand %>" name="brand">
+          <option selected disabled> ---Select Brand--- </option>
+          <option value="Yamaha">Yamaha</option>
+          <option value="Honda">Honda</option>
+          <option value="Mercy">Mercy</option>
+         
+      </select>
 
     <div class="mb-3">
       <label for="exampleFormControlInput1">Price:</label>
-      <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="insert price" name="price" nin="1" autocomplete="off">
+      <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="insert price" value="<%= data.price %>" name="price" nin="1" autocomplete="off">
     </div>
 
     <div class="mb-3">
       <label for="exampleFormControlInput1">Image:</label>
-      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="insert bike image" name="image" autocomplete="off">
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="insert bike image" value="<%= data.image %>" name="image" autocomplete="off">
     </div>
 
     
     
       <label for="floatingInputValue">Description:</label>
-      <textarea class="form-control" id="floatingInputValue" placeholder="write some description.." name="description" value="description" autocomplete="off"></textarea>
+      <textarea class="form-control" id="floatingInputValue" placeholder="write some description.." name="description" value="" autocomplete="off"><%= data.description %></textarea>
     
            
     <div class="submit">
